@@ -1,0 +1,77 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+venv*/
+ENV/
+build/
+dist/
+downloads/
+*.egg-info/
+eggs/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+.tox/
+.nox/
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# pyenv
+.python-version
+
+# pipenv / poetry
+Pipfile.lock
+.venv
+poetry.lock
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# IDEs
+.idea/
+
+# Local settings
+local_settings.py
+
+# Data, datasets and model binaries (ignore large/trained artifacts)
+*/trained_models/
+prepared_datasets/**/trained_models/
+*.pth
+*.pt
+*.pkl
+*.npz
+*.bin
+
+# Misc
+.cache/
+thumbs.db
+desktop.ini
