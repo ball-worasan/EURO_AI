@@ -62,15 +62,6 @@ logs/
 # Local settings
 local_settings.py
 
-# Data, datasets and model binaries (ignore large/trained artifacts)
-*/trained_models/
-prepared_datasets/**/trained_models/
-*.pth
-*.pt
-*.pkl
-*.npz
-*.bin
-
 # Misc
 .cache/
 thumbs.db
