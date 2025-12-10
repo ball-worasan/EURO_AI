@@ -1,68 +1,112 @@
-# Byte-compiled / optimized / DLL files
+# ========================================
+# Python & Virtual Environments
+# ========================================
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
 env/
 venv/
 venv*/
+.venv/
+.venv311/
 ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
 build/
+develop-eggs/
 dist/
 downloads/
-*.egg-info/
 eggs/
 .eggs/
+*.egg-info/
+*.egg
+PIPFILE.lock
+POETRY.LOCK
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage
+# Testing & coverage
 .tox/
 .nox/
 .coverage
+.coverage.*
 coverage.xml
-htmlcov/
+*.cover
 .pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
 
-# Jupyter
+# Jupyter / Notebooks
 .ipynb_checkpoints/
 
-# pyenv
+# pyenv / Python version management
 .python-version
+.pyenv/
 
-# pipenv / poetry
-Pipfile.lock
-.venv
-poetry.lock
-
-# VSCode
+# ========================================
+# IDEs & Editors
+# ========================================
 .vscode/
-
-# macOS
-.DS_Store
-
-# Environment files
-.env
-.env.*
-
-# Logs
-logs/
-*.log
-
-# IDEs
 .idea/
-
-# Local settings
-local_settings.py
-
-# Misc
-.cache/
+*.swp
+*.swo
+*~
+.DS_Store
 thumbs.db
 desktop.ini
+
+# ========================================
+# Environment & Configuration (TRACKED: .env.example)
+# ========================================
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+local_settings.py
+# !.env.example
+
+# ========================================
+# Logs & Temporary Files
+# ========================================
+logs/
+*.log
+*.log.*
+.cache/
+*.tmp
+*.temp
+
+# ========================================
+# OS Files
+# ========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ========================================
+# Project-specific (MT5, MetaTrader)
+# ========================================
+MT5/
+*.tpl
+*.fxh
+Terminal.ini
+
+# ========================================
+# TRACKED FILES (opposite of typical .gitignore)
+# These files ARE committed to the repo:
+# - Python source code (.py)
+# - Jupyter notebooks (.ipynb)
+# - Data files (.csv, .json)
+# - Model files (.pth, .pkl, .joblib)
+# - Documentation
+# ========================================
+# No ignore rules for these extensions—they WILL be pushed to GitHub
