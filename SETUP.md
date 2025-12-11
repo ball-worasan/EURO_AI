@@ -21,6 +21,7 @@ Comprehensive guide for setting up the EURO_AI project, configuring environments
 ## System Requirements
 
 - **OS:** Windows 10 / 11 (for MetaTrader5 support)
+  - macOS: fully supported for model development and inference, but note that the `MetaTrader5` package is Windows-only; use the MT5 terminal or remote Windows host for live trading.
 - **Python:** 3.11 (recommended; 3.10 also works; **avoid 3.14+**)
 - **RAM:** 8GB minimum (16GB+ recommended for model inference)
 - **GPU (optional):** NVIDIA GPU with CUDA compute capability 3.5+
@@ -39,6 +40,32 @@ py -3.11 --version
 If Python 3.11 is not installed:
 - Download from https://www.python.org/downloads/
 - Install and ensure "Add Python to PATH" is checked
+
+### macOS: use `pyenv` to manage Python versions (recommended)
+
+On macOS it's convenient to install and manage Python versions with `pyenv` so you can create a Python 3.11 environment even when the system Python is newer.
+
+```bash
+# Install prerequisites (Homebrew)
+brew update
+brew install openssl readline zlib xz sqlite3 pyenv
+
+# Add pyenv init to zsh
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+source ~/.zshrc
+
+# Install Python 3.11 and create a venv
+pyenv install 3.11.4          # or latest 3.11.x
+pyenv local 3.11.4
+python -m venv .venv311
+source .venv311/bin/activate
+python -m pip install --upgrade pip setuptools wheel
+pip install -r lib/requirements.txt
+```
+
+If you prefer not to use `pyenv`, install a 3.11 distribution from python.org and create the venv with that interpreter.
 
 ---
 
@@ -248,6 +275,22 @@ uvicorn server:app --host 0.0.0.0 --port 8000
 ```
 
 Server will be available at `http://0.0.0.0:8000`
+
+### VS Code: point the Python interpreter to the created venv
+
+If you use VS Code and Pylance shows "Import ... could not be resolved", make sure VS Code is using the project's virtual environment:
+
+1. Open the Command Palette: `Cmd+Shift+P` → `Python: Select Interpreter`.
+2. Choose the interpreter at `<workspace>/.venv311/bin/python`.
+
+Alternatively add the workspace override in `.vscode/settings.json` (created automatically by this repo):
+
+```json
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv311/bin/python",
+  "python.analysis.indexing": true
+}
+```
 
 ### Development Mode (with auto-reload)
 

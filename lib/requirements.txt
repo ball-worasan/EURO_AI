@@ -6,5 +6,5 @@ pandas
 joblib
 scikit-learn
 requests
-MetaTrader5
 lightgbm
+MetaTrader5
