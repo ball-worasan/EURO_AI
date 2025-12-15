@@ -1,0 +1,55 @@
+{
+  "csv_path": "data_csv/EURUSD_D1.csv",
+  "seq_len": 51,
+  "horizon": 1,
+  "train_ratio": 0.7,
+  "val_ratio": 0.15,
+  "feature_cols": [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Spread",
+    "rsi_14",
+    "macd_line",
+    "macd_signal",
+    "macd_hist",
+    "roc_12",
+    "atr_14",
+    "bb_width",
+    "stoch_k",
+    "stoch_d",
+    "cci_20",
+    "obv",
+    "dist_ema_50",
+    "slope_ema_50",
+    "adx_14",
+    "candle_body_size",
+    "upper_wick",
+    "lower_wick",
+    "clv"
+  ],
+  "columns_required": [
+    "Time",
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Spread"
+  ],
+  "targets_boosting": [
+    "tgt_high_break",
+    "tgt_low_break",
+    "tgt_vol_high",
+    "tgt_candle_class"
+  ],
+  "targets_dl": [
+    "tgt_high_break",
+    "tgt_low_break",
+    "tgt_vol_high",
+    "tgt_candle_class"
+  ],
+  "note": "Multi-task classification: breakout, volatility, next-candle pattern."
+}
